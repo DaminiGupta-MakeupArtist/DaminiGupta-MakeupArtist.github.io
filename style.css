@@ -18,13 +18,15 @@ body {
   overflow-x: hidden;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero {
-  background: linear-gradient(
-      rgba(0,0,0,0.35),
-      rgba(0,0,0,0.35)
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 241, 243, 0.85),
+      rgba(214, 177, 163, 0.55)
     ),
-    url("images/hero.jpg") center/cover no-repeat;
+    url("images/hero.png") center / cover no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -33,48 +35,52 @@ body {
 }
 
 .hero-content {
-  color: #fff;
+  color: #2f2f2f;
   animation: fadeDown 1.4s ease;
 }
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  letter-spacing: 2px;
+  font-size: 3.6rem;
+  letter-spacing: 3px;
 }
 
 .hero h1 span {
-  color: var(--primary);
+  color: #b58a6a;
 }
 
 .hero h2 {
-  font-size: 1.1rem;
-  letter-spacing: 4px;
-  margin: 10px 0;
+  font-size: 1rem;
+  letter-spacing: 5px;
+  margin: 12px 0;
 }
 
 .hero p {
-  margin-bottom: 30px;
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 32px;
 }
 
 .hero-buttons a {
   text-decoration: none;
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 12px 28px;
+  color: #2f2f2f;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 12px 30px;
   margin: 0 10px;
   border-radius: 30px;
+  font-size: 0.9rem;
   transition: all 0.35s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .hero-buttons a:hover {
   background: var(--primary);
-  border-color: var(--primary);
   color: #fff;
-  box-shadow: 0 10px 25px rgba(214,177,163,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(214,177,163,0.45);
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 .section {
   padding: 90px 10%;
   text-align: center;
@@ -89,7 +95,6 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 2.3rem;
   margin-bottom: 30px;
-  position: relative;
 }
 
 .section h3::after {
@@ -140,6 +145,11 @@ body {
 
 .portfolio-grid img {
   width: 100%;
+  height: auto;            /* NO forced height */
+  max-height: 420px;
+  object-fit: contain;     /* SHOW FULL FACE */
+  background: #f7f0eb;     /* soft background */
+  padding: 12px;
   border-radius: 22px;
   transition: all 0.4s ease;
   box-shadow: 0 15px 35px rgba(0,0,0,0.12);
@@ -148,26 +158,6 @@ body {
 .portfolio-grid img:hover {
   transform: scale(1.06);
   box-shadow: 0 20px 45px rgba(214,177,163,0.45);
-}
-
-/* CORE */
-.core ul {
-  max-width: 720px;
-  margin: auto;
-  text-align: left;
-}
-
-.core li {
-  margin-bottom: 12px;
-  position: relative;
-  padding-left: 18px;
-}
-
-.core li::before {
-  content: "•";
-  color: var(--primary);
-  position: absolute;
-  left: 0;
 }
 
 /* CONTACT */
@@ -184,7 +174,7 @@ footer {
   font-size: 0.8rem;
 }
 
-/* ANIMATIONS */
+/* ================= ANIMATIONS ================= */
 .animate {
   animation: fadeUp 1.2s ease both;
 }
@@ -211,10 +201,14 @@ footer {
   }
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
+  .hero {
+    background-position: top center;
+  }
+
   .hero h1 {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
 
   .section {
@@ -222,9 +216,12 @@ footer {
   }
 
   .hero-buttons a {
-    display: inline-block;
     margin: 8px 6px;
     padding: 10px 22px;
     font-size: 0.85rem;
+  }
+
+  .portfolio-grid img {
+    max-height: 320px;
   }
 }
