@@ -145,19 +145,20 @@ body {
 
 .portfolio-grid img {
   width: 100%;
-  aspect-ratio: 3 / 4;     /* PERFECT FOR FACES */
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center top; /* keeps face visible */
+  object-position: center top;
   border-radius: 22px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
 }
-
 
 .portfolio-grid img:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 45px rgba(214,177,163,0.45);
+  transform: scale(1.03);
+  box-shadow: 0 14px 28px rgba(214,177,163,0.35);
 }
+
 
 /* CONTACT */
 .contact p {
