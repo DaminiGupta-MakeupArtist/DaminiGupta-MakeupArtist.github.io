@@ -4,17 +4,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #d6b1a3;   /* nude blush */
+  --secondary: #f7f0eb; /* soft beige */
+  --dark: #2f2f2f;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
-  color: #333;
+  color: var(--dark);
   background: #fff;
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 /* HERO */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-              url("images/hero.jpg") center/cover no-repeat;
+  background: linear-gradient(
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.35)
+    ),
+    url("images/hero.jpg") center/cover no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -24,6 +34,7 @@ body {
 
 .hero-content {
   color: #fff;
+  animation: fadeDown 1.4s ease;
 }
 
 .hero h1 {
@@ -33,17 +44,16 @@ body {
 }
 
 .hero h1 span {
-  font-weight: 600;
+  color: var(--primary);
 }
 
 .hero h2 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   letter-spacing: 4px;
   margin: 10px 0;
 }
 
 .hero p {
-  font-size: 1rem;
   margin-bottom: 30px;
 }
 
@@ -54,24 +64,42 @@ body {
   padding: 12px 28px;
   margin: 0 10px;
   border-radius: 30px;
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
 }
 
 .hero-buttons a:hover {
-  background: #fff;
-  color: #000;
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(214,177,163,0.4);
 }
 
 /* SECTIONS */
 .section {
-  padding: 80px 10%;
+  padding: 90px 10%;
   text-align: center;
+  background: #fff;
+}
+
+.section:nth-child(even) {
+  background: var(--secondary);
 }
 
 .section h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   margin-bottom: 30px;
+  position: relative;
+}
+
+.section h3::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: var(--primary);
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 10px;
 }
 
 /* ABOUT */
@@ -85,61 +113,118 @@ body {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
+  gap: 18px;
 }
 
 .skills-grid span {
-  background: #f7f3f0;
-  padding: 15px;
-  border-radius: 10px;
+  background: #fff;
+  padding: 18px;
+  border-radius: 14px;
   font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.skills-grid span:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-6px);
 }
 
 /* PORTFOLIO */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 25px;
 }
 
 .portfolio-grid img {
   width: 100%;
-  border-radius: 20px;
-  transition: transform 0.3s ease;
+  border-radius: 22px;
+  transition: all 0.4s ease;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
 
 .portfolio-grid img:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
+  box-shadow: 0 20px 45px rgba(214,177,163,0.45);
 }
 
 /* CORE */
 .core ul {
-  max-width: 700px;
+  max-width: 720px;
   margin: auto;
   text-align: left;
 }
 
 .core li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.core li::before {
+  content: "•";
+  color: var(--primary);
+  position: absolute;
+  left: 0;
 }
 
 /* CONTACT */
 .contact p {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 /* FOOTER */
 footer {
-  background: #111;
+  background: linear-gradient(135deg, #2f2f2f, #000);
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 22px;
   font-size: 0.8rem;
+}
+
+/* ANIMATIONS */
+.animate {
+  animation: fadeUp 1.2s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2.4rem;
+    font-size: 2.3rem;
+  }
+
+  .section {
+    padding: 65px 6%;
+  }
+
+  .hero-buttons a {
+    display: inline-block;
+    margin: 8px 6px;
+    padding: 10px 22px;
+    font-size: 0.85rem;
   }
 }
