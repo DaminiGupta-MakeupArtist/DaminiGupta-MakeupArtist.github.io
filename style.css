@@ -5,8 +5,10 @@
 }
 
 :root {
-  --primary: #d6b1a3;   /* nude blush */
-  --secondary: #f7f0eb; /* soft beige */
+  --primary: #d6b1a3;
+  /* nude blush */
+  --secondary: #f7f0eb;
+  /* soft beige */
   --dark: #2f2f2f;
 }
 
@@ -21,11 +23,9 @@ body {
 /* ================= HERO ================= */
 .hero {
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       rgba(255, 241, 243, 0.85),
-      rgba(214, 177, 163, 0.55)
-    ),
+      rgba(214, 177, 163, 0.55)),
     url("images/hero.png") center / cover no-repeat;
   height: 100vh;
   display: flex;
@@ -70,14 +70,14 @@ body {
   border-radius: 30px;
   font-size: 0.9rem;
   transition: all 0.35s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .hero-buttons a:hover {
   background: var(--primary);
   color: #fff;
   transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(214,177,163,0.45);
+  box-shadow: 0 18px 40px rgba(214, 177, 163, 0.45);
 }
 
 /* ================= SECTIONS ================= */
@@ -127,7 +127,7 @@ body {
   border-radius: 14px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
 .skills-grid span:hover {
@@ -149,14 +149,14 @@ body {
   object-fit: cover;
   object-position: center top;
   border-radius: 22px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   will-change: transform;
 }
 
 .portfolio-grid img:hover {
   transform: scale(1.03);
-  box-shadow: 0 14px 28px rgba(214,177,163,0.35);
+  box-shadow: 0 14px 28px rgba(214, 177, 163, 0.35);
 }
 
 
@@ -174,6 +174,32 @@ footer {
   font-size: 0.8rem;
 }
 
+
+/* ================= HERO PROFILE PIC ================= */
+.hero-profile {
+  margin-bottom: 26px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-profile img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Hover-enhanced glow */
+.hero-profile:hover img {
+  transform: scale(1.04);
+  box-shadow:
+    0 0 0 6px rgba(214, 177, 163, 0.25),
+    0 18px 40px rgba(214, 177, 163, 0.45);
+}
+
 /* ================= ANIMATIONS ================= */
 .animate {
   animation: fadeUp 1.2s ease both;
@@ -184,6 +210,7 @@ footer {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -195,6 +222,7 @@ footer {
     opacity: 0;
     transform: translateY(-40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -223,5 +251,17 @@ footer {
 
   .portfolio-grid img {
     aspect-ratio: 4 / 5;
+  }
+
+  .hero-profile img {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* Softer glow on mobile */
+  .hero-profile:hover img {
+    box-shadow:
+      0 0 0 4px rgba(214, 177, 163, 0.2),
+      0 12px 28px rgba(214, 177, 163, 0.35);
   }
 }
